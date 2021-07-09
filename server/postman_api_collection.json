@@ -1,0 +1,343 @@
+{
+    "info": {
+        "_postman_id": "a0eac99a-c5ca-447e-babd-bf43f2a4ac28",
+        "name": "Social Media",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "Log In",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"akshay.gudhate@gmail.com\",\n    \"password\": \"Akki@123\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{SocialMediaURL}}auth/login",
+                            "host": [
+                                "{{SocialMediaURL}}auth"
+                            ],
+                            "path": [
+                                "login"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Sign Up",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "nameFirst",
+                                    "value": "Akshay",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "nameLast",
+                                    "value": "Gudhate",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "akshay.gudhate@gmail.com",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "918208106722",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "Akki@123",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "image",
+                                    "type": "file",
+                                    "src": "/home/akshay/Downloads/file_1.jpg"
+                                }
+                            ],
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{SocialMediaURL}}auth/signup",
+                            "host": [
+                                "{{SocialMediaURL}}auth"
+                            ],
+                            "path": [
+                                "signup"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Articles",
+            "item": [
+                {
+                    "name": "Add Article",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{SocialMediaAuthToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "{{HotelManagementAuthToken}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "title",
+                                    "value": "postgres",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "Postgres ne DB",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "media",
+                                    "type": "file",
+                                    "src": "/home/akshay/Downloads/Postgres.jpg"
+                                }
+                            ],
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{SocialMediaURL}}article",
+                            "host": [
+                                "{{SocialMediaURL}}article"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Article",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{SocialMediaAuthToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "{{HotelAuthToken}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "type": "text",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{SocialMediaURL}}article/60e856cbae1951a39254a879",
+                            "host": [
+                                "{{SocialMediaURL}}article"
+                            ],
+                            "path": [
+                                "60e856cbae1951a39254a879"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Article List",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{SocialMediaAuthToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "{{HotelManagementAuthToken}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/x-www-form-urlencoded",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{SocialMediaURL}}article/list",
+                            "host": [
+                                "{{SocialMediaURL}}article"
+                            ],
+                            "path": [
+                                "list"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Article",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{SocialMediaAuthToken}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "title",
+                                    "value": "postgres1",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "Postgres ne DB1",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "media",
+                                    "type": "file",
+                                    "src": "/home/akshay/Downloads/Postgres.jpg"
+                                }
+                            ],
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{SocialMediaURL}}article/60e856cbae1951a39254a879",
+                            "host": [
+                                "{{SocialMediaURL}}article"
+                            ],
+                            "path": [
+                                "60e856cbae1951a39254a879"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Article",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{SocialMediaAuthToken}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{SocialMediaURL}}article/60e85c43ae4ee8c1d7f4979b",
+                            "host": [
+                                "{{SocialMediaURL}}article"
+                            ],
+                            "path": [
+                                "60e85c43ae4ee8c1d7f4979b"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ],
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                },
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "HotelManagementBaseURL",
+            "value": "http://localhost:8001/api/"
+        },
+        {
+            "key": "HotelManagementAuthToken",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lX2ZpcnN0IjoiQWtzaGF5IiwibmFtZV9sYXN0IjoiR3VkaGF0ZSIsInBob25lIjo5MTgyMDgxMDY3MjIsImhhc19jaGFpbiI6ZmFsc2UsInRpbWVfc3RhbXAiOiIyMDIxLTA2LTA5VDExOjI2OjAzLjkyMloiLCJpYXQiOjE2MjMyMzc5NjMsImV4cCI6MTYyMzI4MTE2M30.AkFS57Bs-wVupNBPDFlTWHXQ6tpoTrpjj4FnAuyIFVg"
+        }
+    ]
+}
